@@ -2,13 +2,15 @@ FROM python:3.10-bullseye
 
 WORKDIR /app
 
+COPY . . 
+
+RUN python -m venv /app/venv
+
 RUN python -m venv ./.venv
 
 COPY requirements.txt .
 
-RUN . ./.venv/bin/activate && pip install --no-cache-dir -r requirements.txt
-
-COPY . . 
+RUN /bin/bash -c "source /app/venv/bin/activate && pip install --no-cache-dir -r requirements.txt"
 
 EXPOSE 8080
 
