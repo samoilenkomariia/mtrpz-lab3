@@ -4,6 +4,7 @@
 #
 #    pip-compile --output-file=requirements.txt requirements/backend.in
 #
+numpy==1.26.4
 annotated-types==0.7.0
     # via pydantic
 anyio==4.9.0
