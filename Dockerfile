@@ -1,4 +1,4 @@
-FROM python:3.10-bullseye
+FROM python:3.10-alpine
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN python -m venv ./.venv
 
 COPY requirements.txt .
 
-RUN /bin/bash -c "source /app/venv/bin/activate && pip install --no-cache-dir -r requirements.txt"
+RUN /app/venv/bin/pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
